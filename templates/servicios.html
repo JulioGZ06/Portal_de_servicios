@@ -1,34 +1,43 @@
 {% extends "base.html" %}
 
+{% block title %}Servicios | Portal de servicios{% endblock %}
+
 {% block content %}
-<h2 class="mb-4">Nuestros Servicios</h2>
+<header class="page-heading">
+    <p class="page-eyebrow">HERRAMIENTAS PARA TU DÍA</p>
+    <h1>Nuestros servicios</h1>
+    <p>Elige una herramienta para comenzar. Cada servicio te lleva directamente a su calculadora.</p>
+</header>
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-        <div class="card h-100 shadow-sm">
-            <img src="{{ url_for('static', filename='img/banner1.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cotización y compras">
+        <article class="card service-card h-100">
+            <img src="{{ url_for('static', filename='img/banner1.svg') }}" class="card-img-top" alt="Cotización y compras">
             <div class="card-body">
                 <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('compra') }}">Gestión de Compras</a></h5>
                 <p class="card-text">Cálculo automatizado de subtotales, aplicación de descuentos por volumen y generación de importes netos para adquisiciones.</p>
+                <span class="service-cta">Abrir calculadora <span aria-hidden="true">→</span></span>
             </div>
-        </div>
+        </article>
     </div>
     <div class="col">
-        <div class="card h-100 shadow-sm">
-            <img src="{{ url_for('static', filename='img/banner2.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Control de nómina">
+        <article class="card service-card h-100">
+            <img src="{{ url_for('static', filename='img/banner2.svg') }}" class="card-img-top" alt="Control de nómina">
             <div class="card-body">
                 <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('salario') }}">Cálculo de Nómina Semanal</a></h5>
                 <p class="card-text">Determinación transparente de jornadas ordinarias de hasta 40 horas y remuneración doble para tiempo extraordinario.</p>
+                <span class="service-cta">Abrir calculadora <span aria-hidden="true">→</span></span>
             </div>
-        </div>
+        </article>
     </div>
     <div class="col">
-        <div class="card h-100 shadow-sm">
-            <img src="{{ url_for('static', filename='img/banner3.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monitoreo ambiental">
+        <article class="card service-card h-100">
+            <img src="{{ url_for('static', filename='img/banner3.svg') }}" class="card-img-top" alt="Conversión de temperatura">
             <div class="card-body">
                 <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('temperatura') }}">Conversión Térmica Industrial</a></h5>
                 <p class="card-text">Estandarización inmediata de lecturas de temperatura desde grados Celsius hacia escalas Fahrenheit y Kelvin.</p>
+                <span class="service-cta">Abrir conversor <span aria-hidden="true">→</span></span>
             </div>
-        </div>
+        </article>
     </div>
 </div>
 {% endblock %}

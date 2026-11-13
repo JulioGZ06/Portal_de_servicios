@@ -1,18 +1,44 @@
 {% extends "base.html" %}
 
+{% block title %}Contacto | Portal de servicios{% endblock %}
+
 {% block content %}
-<h2 class="mb-4">Información de Contacto</h2>
-<div class="row">
-    <div class="col-md-7">
-        <div class="card shadow-sm">
-            <div class="card-header bg-dark text-white">Canales de Atención Corporativa</div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Dirección:</strong> Blvd. Adolfo López Mateos #1205, León, Guanajuato.</li>
-                <li class="list-group-item"><strong>Teléfono:</strong> +52 (477) 123-4567</li>
-                <li class="list-group-item"><strong>Correo electrónico:</strong> soporte@portalservicios.com.mx</li>
-                <li class="list-group-item"><strong>Horario de atención:</strong> Lunes a Viernes de 8:00 a 18:00 hrs.</li>
-            </ul>
-        </div>
+<header class="page-heading">
+    <p class="page-eyebrow">ESTAMOS PARA APOYARTE</p>
+    <h1>Hablemos</h1>
+    <p>Consulta nuestros canales de atención. El equipo está disponible para ayudarte con el portal y sus servicios.</p>
+</header>
+
+<div class="row g-4 align-items-stretch">
+    <div class="col-lg-7">
+        <section class="contact-card h-100">
+            <h2>Canales de atención</h2>
+            <div class="contact-list">
+                <div class="contact-item">
+                    <span class="contact-symbol" aria-hidden="true">01</span>
+                    <div><strong>Visítanos</strong><span>Blvd. Adolfo López Mateos #1205, León, Guanajuato.</span></div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-symbol" aria-hidden="true">02</span>
+                    <div><strong>Llámanos</strong><a href="tel:+524771234567">+52 (477) 123-4567</a></div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-symbol" aria-hidden="true">03</span>
+                    <div><strong>Escríbenos</strong><a href="mailto:soporte@portalservicios.com.mx">soporte@portalservicios.com.mx</a></div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-symbol" aria-hidden="true">04</span>
+                    <div><strong>Horario de atención</strong><span>Lunes a viernes, de 8:00 a 18:00 hrs.</span></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-5">
+        <aside class="contact-aside">
+            <span class="contact-aside-mark" aria-hidden="true">PS</span>
+            <h2>Atención cercana.<br>Soluciones prácticas.</h2>
+            <p>Cuéntanos qué necesitas y te orientaremos hacia el canal adecuado.</p>
+        </aside>
     </div>
 </div>
 {% endblock %}

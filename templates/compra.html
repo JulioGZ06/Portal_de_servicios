@@ -1,39 +1,46 @@
 {% extends "base.html" %}
 
+{% block title %}Compra | Portal de servicios{% endblock %}
+
 {% block content %}
-<h2 class="mb-4">Calculadora de Compra</h2>
+<header class="page-heading">
+    <p class="page-eyebrow">CALCULADORA · COMPRAS</p>
+    <h1>Calcula tu compra</h1>
+    <p>Obtén el subtotal y el importe final. Las compras mayores a $1,000 reciben un descuento del 10%.</p>
+</header>
 {% if error %}
 <div class="alert alert-danger" role="alert">{{ error }}</div>
 {% endif %}
-<div class="row">
-    <div class="col-md-6">
-        <form method="POST" class="card p-4 shadow-sm">
-            <div class="mb-3">
-                <label for="cantidad" class="form-label">Cantidad de artículos</label>
-                <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" step="1" value="{{ valores.get('cantidad', '') }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="precio" class="form-label">Precio unitario ($)</label>
-                <input type="number" step="0.01" class="form-control" id="precio" name="precio" min="0.01" value="{{ valores.get('precio', '') }}" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Calcular Importe</button>
-        </form>
-    </div>
+<div class="calculator-layout">
+    <form method="POST" class="tool-card">
+        <h2>Datos de los artículos</h2>
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad de artículos</label>
+            <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" step="1" value="{{ valores.get('cantidad', '') }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio unitario ($)</label>
+            <input type="number" step="0.01" class="form-control" id="precio" name="precio" min="0.01" value="{{ valores.get('precio', '') }}" required>
+        </div>
+        <button type="submit" class="btn tool-submit">Calcular importe <span aria-hidden="true">→</span></button>
+    </form>
 
     {% if resultado %}
-    <div class="col-md-6">
-        <div class="card border-success shadow-sm">
-            <div class="card-header bg-success text-white fw-bold">Resumen de la Compra</div>
-            <div class="card-body">
-                <p><strong>Cantidad capturada:</strong> {{ resultado.cantidad }} unidades</p>
-                <p><strong>Precio unitario:</strong> ${{ "%.2f"|format(resultado.precio) }}</p>
-                <hr>
-                <p><strong>Subtotal:</strong> ${{ "%.2f"|format(resultado.subtotal) }}</p>
-                <p><strong>Descuento aplicado (10% si > $1,000):</strong> ${{ "%.2f"|format(resultado.descuento) }}</p>
-                <h4 class="text-success mt-3">Total a pagar: ${{ "%.2f"|format(resultado.total) }}</h4>
-            </div>
-        </div>
-    </div>
+    <section class="result-card" aria-live="polite">
+        <p class="result-tag">RESUMEN DE COMPRA</p>
+        <h2>Importe final</h2>
+        <p class="result-total">${{ "%.2f"|format(resultado.total) }}</p>
+        <div class="result-line"><span>Cantidad</span><strong>{{ resultado.cantidad }} unidades</strong></div>
+        <div class="result-line"><span>Precio unitario</span><strong>${{ "%.2f"|format(resultado.precio) }}</strong></div>
+        <div class="result-line"><span>Subtotal</span><strong>${{ "%.2f"|format(resultado.subtotal) }}</strong></div>
+        <div class="result-line"><span>Descuento aplicado</span><strong>− ${{ "%.2f"|format(resultado.descuento) }}</strong></div>
+    </section>
+    {% else %}
+    <section class="result-placeholder" aria-live="polite">
+        <span class="result-placeholder-mark" aria-hidden="true">$</span>
+        <h2>Tu resumen aparecerá aquí</h2>
+        <p>Ingresa la cantidad y el precio unitario para calcular el total de la compra.</p>
+    </section>
     {% endif %}
 </div>
 {% endblock %}

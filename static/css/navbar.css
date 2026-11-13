@@ -1,6 +1,6 @@
 :root {
     color-scheme: light;
-    font-family: Arial, sans-serif;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
 
 * {
@@ -8,14 +8,20 @@
 }
 
 body {
+    min-width: 320px;
     margin: 0;
-    color: #1f2937;
-    background-color: #f8fafc;
+    color: #233b3d;
+    background: #f4f7f5;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 .site-header {
-    background-color: #123b63;
-    box-shadow: 0 2px 8px rgb(15 23 42 / 18%);
+    position: relative;
+    z-index: 5;
+    border-bottom: 1px solid rgb(255 255 255 / 9%);
+    background: #173c3d;
+    box-shadow: 0 8px 28px rgb(23 60 61 / 12%);
 }
 
 .navbar {
@@ -23,25 +29,51 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    max-width: 1200px;
-    min-height: 4rem;
+    width: min(100% - 2.5rem, 1200px);
+    min-height: 76px;
     margin: 0 auto;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 0;
 }
 
 .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
     flex-shrink: 0;
     color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1.03rem;
+    font-weight: 750;
+    letter-spacing: -0.035em;
     text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.brand-light {
+    color: #c1d5ce;
+    font-weight: 500;
+}
+
+.brand-mark {
+    display: grid;
+    width: 2.2rem;
+    height: 2.2rem;
+    place-items: center;
+    border: 1px solid rgb(201 239 154 / 45%);
+    border-radius: 0.7rem;
+    color: #173c3d;
+    background: #c9ef9a;
+    font-size: 1.1rem;
+    font-weight: 850;
 }
 
 .navbar-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: 0.35rem;
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -49,31 +81,57 @@ body {
 
 .navbar-links a {
     display: block;
-    padding: 0.6rem 0.75rem;
-    border-radius: 0.35rem;
-    color: #eaf2f8;
-    font-size: 0.95rem;
+    padding: 0.55rem 0.7rem;
+    border-radius: 0.55rem;
+    color: #d3e1dc;
+    font-size: 0.82rem;
+    font-weight: 600;
     text-decoration: none;
     transition: background-color 150ms ease, color 150ms ease;
 }
 
 .navbar-links a:hover,
-.navbar-links a:focus-visible {
-    color: #123b63;
-    background-color: #fff;
+.navbar-links a:focus-visible,
+.navbar-links a[aria-current="page"] {
+    color: #173c3d;
+    background: #c9ef9a;
     outline: none;
 }
 
 main {
-    width: min(100% - 2rem, 1200px);
-    margin: 2rem auto;
+    width: min(100% - 2.5rem, 1200px);
+    min-height: calc(100vh - 160px);
+    margin: 0 auto;
+    padding: 2.7rem 0 4rem;
 }
 
-@media (max-width: 700px) {
+.site-footer {
+    border-top: 1px solid #e1e9e5;
+    background: #fff;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(100% - 2.5rem, 1200px);
+    margin: 0 auto;
+    padding: 1.35rem 0;
+    color: #7a8a86;
+    font-size: 0.78rem;
+}
+
+.footer-brand {
+    color: #315451;
+    font-weight: 750;
+}
+
+@media (max-width: 900px) {
     .navbar {
         align-items: flex-start;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.7rem;
+        padding: 1rem 0;
     }
 
     .navbar-links {
@@ -81,6 +139,41 @@ main {
     }
 
     .navbar-links a {
-        padding: 0.5rem 0.65rem;
+        padding: 0.48rem 0.6rem;
+    }
+}
+
+@media (max-width: 560px) {
+    main {
+        width: min(100% - 1.5rem, 1200px);
+        padding: 1.7rem 0 2.75rem;
+    }
+
+    .navbar,
+    .footer-inner {
+        width: min(100% - 1.5rem, 1200px);
+    }
+
+    .navbar-links {
+        gap: 0.1rem;
+    }
+
+    .navbar-links a {
+        padding: 0.45rem 0.5rem;
+        font-size: 0.76rem;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

@@ -1,39 +1,107 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h2 class="mb-4">Calculadora de Salario Semanal</h2>
-{% if error %}
-<div class="alert alert-danger" role="alert">{{ error }}</div>
-{% endif %}
-<div class="row">
-    <div class="col-md-6">
-        <form method="POST" class="card p-4 shadow-sm">
-            <div class="mb-3">
-                <label for="horas" class="form-label">Horas trabajadas en la semana</label>
-                <input type="number" step="0.5" class="form-control" id="horas" name="horas" min="0" value="{{ valores.get('horas', '') }}" required>
-            </div>
-            <div class="mb-3">
-                <label for="pago_hora" class="form-label">Pago por hora ($)</label>
-                <input type="number" step="0.01" class="form-control" id="pago_hora" name="pago_hora" min="0" value="{{ valores.get('pago_hora', '') }}" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Calcular Salario</button>
-        </form>
-    </div>
+{% block title %}Salario semanal | Portal de servicios{% endblock %}
 
-    {% if resultado %}
-    <div class="col-md-6">
-        <div class="card border-success shadow-sm">
-            <div class="card-header bg-success text-white fw-bold">Desglose de Pago</div>
-            <div class="card-body">
-                <p><strong>Horas totales capturadas:</strong> {{ "%.1f"|format(resultado.horas) }} hrs</p>
-                <p><strong>Tarifa base por hora:</strong> ${{ "%.2f"|format(resultado.pago_hora) }}</p>
-                <hr>
-                <p><strong>Horas normales ({{ resultado.horas_normales }} hrs):</strong> ${{ "%.2f"|format(resultado.pago_normal) }}</p>
-                <p><strong>Horas extra al doble ({{ resultado.horas_extra }} hrs):</strong> ${{ "%.2f"|format(resultado.pago_extra) }}</p>
-                <h4 class="text-success mt-3">Salario Total: ${{ "%.2f"|format(resultado.total) }}</h4>
-            </div>
+{% block page_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/salario.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="payroll-page">
+    <div class="payroll-heading">
+        <div>
+            <p class="payroll-eyebrow">HERRAMIENTA DE NÓMINA</p>
+            <h1>Salario <span>semanal</span></h1>
+            <p class="payroll-intro">Calcula el pago de la semana con un desglose claro de horas regulares y tiempo extra.</p>
+        </div>
+        <div class="payroll-threshold" aria-label="La jornada regular considera hasta 40 horas">
+            <span class="threshold-mark" aria-hidden="true">40</span>
+            <span><strong>horas regulares</strong><small>por semana</small></span>
         </div>
     </div>
+
+    {% if error %}
+    <div class="alert alert-danger payroll-error" role="alert">{{ error }}</div>
     {% endif %}
-</div>
+
+    <div class="payroll-grid">
+        <form method="POST" class="payroll-form">
+            <div class="form-heading">
+                <span class="form-step">01</span>
+                <div>
+                    <h2>Datos de la semana</h2>
+                    <p>Ingresa las horas trabajadas y tu tarifa.</p>
+                </div>
+            </div>
+
+            <div class="payroll-field">
+                <label for="horas">Horas trabajadas</label>
+                <div class="input-shell">
+                    <input type="number" step="0.5" id="horas" name="horas" min="0" placeholder="40" value="{{ valores.get('horas', '') }}" required>
+                    <span>hrs</span>
+                </div>
+                <small>Se considera tiempo extra después de 40 horas.</small>
+            </div>
+
+            <div class="payroll-field">
+                <label for="pago_hora">Pago por hora</label>
+                <div class="input-shell">
+                    <span class="input-prefix">$</span>
+                    <input type="number" step="0.01" id="pago_hora" name="pago_hora" min="0" placeholder="0.00" value="{{ valores.get('pago_hora', '') }}" required>
+                    <span>MXN</span>
+                </div>
+            </div>
+
+            <button type="submit" class="payroll-submit">
+                Calcular salario
+                <span aria-hidden="true">→</span>
+            </button>
+            <p class="payroll-note">Las horas extra se calculan al doble de la tarifa base.</p>
+        </form>
+
+        <section class="payroll-result{% if not resultado %} payroll-result-empty{% endif %}" aria-live="polite">
+            {% if resultado %}
+            <div class="result-topline">
+                <span class="result-icon" aria-hidden="true">✓</span>
+                <span>RESUMEN DE PAGO</span>
+            </div>
+            <p class="result-label">Salario total</p>
+            <p class="result-total"><span>$</span>{{ "%.2f"|format(resultado.total) }}<small>MXN</small></p>
+
+            <div class="result-divider"></div>
+            <div class="result-meta">
+                <span>Horas registradas</span>
+                <strong>{{ "%.1f"|format(resultado.horas) }} hrs</strong>
+            </div>
+            <div class="result-meta">
+                <span>Tarifa por hora</span>
+                <strong>${{ "%.2f"|format(resultado.pago_hora) }}</strong>
+            </div>
+
+            <div class="result-breakdown">
+                <div class="breakdown-row">
+                    <span class="breakdown-dot regular-dot" aria-hidden="true"></span>
+                    <span class="breakdown-label">Horas normales ({{ resultado.horas_normales }} hrs)</span>
+                    <strong>${{ "%.2f"|format(resultado.pago_normal) }}</strong>
+                </div>
+                <div class="breakdown-row">
+                    <span class="breakdown-dot overtime-dot" aria-hidden="true"></span>
+                    <span class="breakdown-label">Horas extra al doble ({{ resultado.horas_extra }} hrs)</span>
+                    <strong>${{ "%.2f"|format(resultado.pago_extra) }}</strong>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-illustration" aria-hidden="true">
+                <span class="empty-coin">$</span>
+                <span class="empty-line line-one"></span>
+                <span class="empty-line line-two"></span>
+                <span class="empty-line line-three"></span>
+            </div>
+            <p class="empty-kicker">TU RESUMEN APARECERÁ AQUÍ</p>
+            <h2>Todo claro,<br>pago por pago.</h2>
+            <p class="empty-copy">Completa tus datos para ver el total y el desglose de tu semana.</p>
+            {% endif %}
+        </section>
+    </div>
+</section>
 {% endblock %}
