@@ -15,3 +15,9 @@ Con el importe calculado, Flask lo pasa a un **template** para generar el **HTML
 ![Diagrama del cliente, el servidor Flask y el intercambio HTTP](./diagrama-flujo.png)
 
 El navegador representa al **cliente** y la aplicación Flask al **servidor**, al que se accede mediante una **dirección IP** y un **puerto**. Al enviar el formulario, el navegador remite la cantidad y el precio en una petición **HTTP POST**. Flask procesa esos datos con **Python**, calcula el importe y prepara el **HTML** de respuesta, que vuelve al cliente para que el navegador lo presente.
+
+## Evidencias e interpretación de los cálculos
+
+- **Compra:** [Ver evidencia del cálculo de compra](./capturas/Captura%20de%20pantalla%202026-11-13%20082359.png). Para 5 artículos a $250 cada uno, el subtotal es $1,250. Como supera $1,000, se aplica un descuento del 10% ($125), por lo que el total a pagar es **$1,125**.
+- **Salario:** [Ver evidencia del cálculo de salario](./capturas/Captura%20de%20pantalla%202026-11-13%20082435.png). Con 45 horas a $100 por hora, 40 horas se pagan a tarifa normal ($4,000) y las 5 horas extra al doble ($1,000). El salario total es **$5,000**.
+- **Temperatura:** [Ver evidencia de la conversión de temperatura](./capturas/Captura%20de%20pantalla%202026-11-13%20082456.png). Una temperatura de 25 °C equivale a **77 °F** y **298.15 K**, según las fórmulas de conversión utilizadas.
