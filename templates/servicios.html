@@ -7,7 +7,7 @@
         <div class="card h-100 shadow-sm">
             <img src="{{ url_for('static', filename='img/banner1.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cotización y compras">
             <div class="card-body">
-                <h5 class="card-title">Gestión de Compras</h5>
+                <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('compra') }}">Gestión de Compras</a></h5>
                 <p class="card-text">Cálculo automatizado de subtotales, aplicación de descuentos por volumen y generación de importes netos para adquisiciones.</p>
             </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="card h-100 shadow-sm">
             <img src="{{ url_for('static', filename='img/banner2.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Control de nómina">
             <div class="card-body">
-                <h5 class="card-title">Cálculo de Nómina Semanal</h5>
+                <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('salario') }}">Cálculo de Nómina Semanal</a></h5>
                 <p class="card-text">Determinación transparente de jornadas ordinarias de hasta 40 horas y remuneración doble para tiempo extraordinario.</p>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="card h-100 shadow-sm">
             <img src="{{ url_for('static', filename='img/banner3.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monitoreo ambiental">
             <div class="card-body">
-                <h5 class="card-title">Conversión Térmica Industrial</h5>
+                <h5 class="card-title"><a class="stretched-link link-dark text-decoration-none" href="{{ url_for('temperatura') }}">Conversión Térmica Industrial</a></h5>
                 <p class="card-text">Estandarización inmediata de lecturas de temperatura desde grados Celsius hacia escalas Fahrenheit y Kelvin.</p>
             </div>
         </div>
