@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Soporte continuo</title>
+  <desc id="desc">Ilustración de un escudo protector, una nube y una persona de soporte.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#253b75"/>
+      <stop offset="1" stop-color="#3879a7"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#72d4c2"/>
+      <stop offset="1" stop-color="#42a9b5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <circle cx="1090" cy="130" r="185" fill="#a5d9ea" opacity=".13"/>
+  <circle cx="175" cy="630" r="270" fill="#83d8c6" opacity=".1"/>
+  <path d="M0 550q185-100 370 0t370 0 370 0 370 0v170H0z" fill="#1b3969" opacity=".55"/>
+  <g transform="translate(440 115)">
+    <path d="M200 0 390 70v160c0 134-86 236-190 295C96 466 10 364 10 230V70Z" fill="url(#shield)" stroke="#d7f4ed" stroke-width="12"/>
+    <path d="m112 258 60 60 120-140" fill="none" stroke="#f7fffb" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(810 145)">
+    <path d="M55 150c-47 0-55-64-12-81 9-52 82-67 113-24 47-18 91 19 83 65 47 17 37 85-14 85H55Z" fill="#f3fbff" opacity=".96"/>
+    <path d="M90 140h100" stroke="#61a9bf" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(120 245)">
+    <circle cx="116" cy="76" r="61" fill="#efbd91"/>
+    <path d="M56 77c0-83 120-104 141-14-35-9-67-35-81-59-11 38-31 59-60 73Z" fill="#24334d"/>
+    <path d="M18 380c4-137 48-213 105-213s101 76 105 213Z" fill="#eaf3f8"/>
+    <path d="M64 228h118v152H64z" fill="#d5e7ee"/>
+    <path d="M118 228v152" stroke="#a9c5d2" stroke-width="8"/>
+    <path d="M217 258c46-42 85-43 111-11" fill="none" stroke="#efbd91" stroke-width="25" stroke-linecap="round"/>
+    <path d="M308 246h54" stroke="#efbd91" stroke-width="25" stroke-linecap="round"/>
+    <path d="M63 380h124" stroke="#d8e6ed" stroke-width="15" stroke-linecap="round"/>
+  </g>
+  <g fill="#c7ecf2" opacity=".8">
+    <circle cx="340" cy="140" r="7"/><circle cx="365" cy="105" r="5"/><circle cx="965" cy="410" r="7"/><circle cx="1000" cy="380" r="5"/>
+  </g>
+</svg>

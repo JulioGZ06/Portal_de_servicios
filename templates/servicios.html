@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Nuestros Servicios</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ url_for('static', filename='img/banner1.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Cotización y compras">
+            <div class="card-body">
+                <h5 class="card-title">Gestión de Compras</h5>
+                <p class="card-text">Cálculo automatizado de subtotales, aplicación de descuentos por volumen y generación de importes netos para adquisiciones.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ url_for('static', filename='img/banner2.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Control de nómina">
+            <div class="card-body">
+                <h5 class="card-title">Cálculo de Nómina Semanal</h5>
+                <p class="card-text">Determinación transparente de jornadas ordinarias de hasta 40 horas y remuneración doble para tiempo extraordinario.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ url_for('static', filename='img/banner3.svg') }}" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monitoreo ambiental">
+            <div class="card-body">
+                <h5 class="card-title">Conversión Térmica Industrial</h5>
+                <p class="card-text">Estandarización inmediata de lecturas de temperatura desde grados Celsius hacia escalas Fahrenheit y Kelvin.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

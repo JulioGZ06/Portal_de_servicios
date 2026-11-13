@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Soluciones corporativas</title>
+  <desc id="desc">Ilustración de edificios de oficina sobre un fondo azul.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#123b63"/>
+      <stop offset="1" stop-color="#2586a8"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#c9f0f3"/>
+      <stop offset="1" stop-color="#70b8cb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#sky)"/>
+  <circle cx="1020" cy="150" r="85" fill="#f3d37a" opacity=".92"/>
+  <path d="M0 555 200 435l170 100 195-160 210 170 175-130 330 155v150H0Z" fill="#17516a" opacity=".65"/>
+  <g fill="#eaf4f5">
+    <path d="M125 292h255v330H125z"/>
+    <path d="M405 205h330v417H405z"/>
+    <path d="M760 330h190v292H760z"/>
+    <path d="M973 260h190v362H973z"/>
+  </g>
+  <g fill="url(#glass)">
+    <path d="M155 330h54v60h-54zm83 0h54v60h-54zm83 0h29v60h-29zm-166 94h54v60h-54zm83 0h54v60h-54zm83 0h29v60h-29zm-166 94h54v60h-54zm83 0h54v60h-54zm83 0h29v60h-29z"/>
+    <path d="M445 247h65v67h-65zm95 0h65v67h-65zm95 0h65v67h-65zm-190 100h65v67h-65zm95 0h65v67h-65zm95 0h65v67h-65zm-190 100h65v67h-65zm95 0h65v67h-65zm95 0h65v67h-65zm-190 100h65v43h-65zm95 0h65v43h-65zm95 0h65v43h-65z"/>
+    <path d="M790 368h45v60h-45zm70 0h45v60h-45zm-70 92h45v60h-45zm70 0h45v60h-45zm146-160h47v64h-47zm74 0h47v64h-47zm-74 97h47v64h-47zm74 0h47v64h-47zm-74 97h47v64h-47zm74 0h47v64h-47z"/>
+  </g>
+  <path d="M0 622h1280v98H0z" fill="#102f4c"/>
+</svg>
